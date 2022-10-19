@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8aa775d3-bccd-4414-bbda-9c0ee8b59337" name="Changes" comment="121" />
+    <list default="true" id="8aa775d3-bccd-4414-bbda-9c0ee8b59337" name="Changes" comment="121">
+      <change afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,11 +21,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="home_work_16" />
@@ -57,6 +59,7 @@
       <option name="presentableId" value="Default" />
       <updated>1665429603030</updated>
       <workItem from="1665429605431" duration="233000" />
+      <workItem from="1665512108595" duration="46000" />
     </task>
     <task id="LOCAL-00001" summary="121">
       <created>1665429692092</created>

@@ -1,0 +1,23 @@
+GET http://localhost:5000/books
+Content-Type: application/json
+
+###
+
+POST http://localhost:5000/books
+Content-Type: application/json
+
+###
+
+POST http://localhost:5000/books
+Content-Type: application/json
+Authorisation: auth_required
+
+###
+
+POST http://localhost:5000/books
+Content-Type: application/json
+Authorisation: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Im15bmFtZSIsInJvbGUiOiJ1c2VyIiwiZXhwIjoxNjY2MTIzNjMzfQ.3EPf_tgHUZE7LsCAvckdM0nwK7PgGM_B3YNI0NKV16k
+
+
+
+
