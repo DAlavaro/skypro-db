@@ -2,7 +2,7 @@ from operator import or_
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import desc
+from sqlalchemy import desc, func
 from sqlalchemy.orm import relationship
 
 
@@ -159,18 +159,29 @@ SQL -> OREDER BY
 # print(f'Результат: {query.all()}')
 
 """
-SQL -> JOIN
+SQL -> INNER JOIN
 """
-query = db.session.query(User.name, Group.name).join(Group)
-print(f'Запрос: {query}')
-print(f'Результат: {query.all()}')
-
-# """
-# SQL -> GROUP By (Scalar)
-# """
 # query = db.session.query(User.name, Group.name).join(Group)
 # print(f'Запрос: {query}')
 # print(f'Результат: {query.all()}')
+
+"""
+SQL ->  LEFT JOIN
+"""
+# query = db.session.query(User.name, Group.name).join(Group, outer=True)
+# print(f'Запрос: {query}')
+# print(f'Результат: {query.all()}')
+
+"""
+SQL -> GROUP By (Scalar)
+func -> count(user.id)
+"""
+# получаем количество пользователей по первой группе
+# Запрашиваем функцию импортировав пакет func
+# Делаем запрос колонки делаем join руппы и фильтроем по колонке Group.id по занченеию Group.id = 1
+query = db.session.query(func.count(User.id)).join(Group).filter(Group.id == 1).group_by(Group.id)
+print(f'Запрос: {query}')
+print(f'Результат: {query.scalar()}')
 
 exit()
 
