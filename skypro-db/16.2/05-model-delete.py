@@ -1,16 +1,10 @@
-from operator import or_
-
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import desc, func
 from sqlalchemy.orm import relationship
 
 
-""" создаем новое приложение с новым экземпляром фласка"""
 app = Flask(__name__)
-""" устанавливаем конфигурацию для подключения к базе данных """
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///:memory:"
-""" создаем новый экземпляр SQLAlchemy и передаем туда наше приложение   """
 db =SQLAlchemy(app)
 
 """ Создаем класс User и наследуемся от базовой модели db.Model """
@@ -57,28 +51,21 @@ with db.session.begin():
         user_06,
     ])
 
-# Запросы юзера по pk=2
+# Запросы  на удаление по id
 user = User.query.get(2)
-print(user.name)
-
-user.name = "Update name"
-print(user.name)
-
-print(User.query.get(2))
-
-db.session.add(user)
+db.session.delete(user)
 db.session.commit()
 print(User.query.get(2))
 
+user = User.query.get(2)
+print(user is True)
 
+# Запросы на удаление данных по условию
+db.session.query(User).filter(User.name == "Maxim").delete()
+db.session.commit()
 
-
-
-
-
-
-
-
+user = User.query.filter(User.name == "Maxim").all()
+print(f"User: {user}")
 
 
 if __name__ == '__main__':
