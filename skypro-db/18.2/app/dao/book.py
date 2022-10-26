@@ -1,4 +1,4 @@
-from dao.model.book import Book
+from app.dao.model.book import Book
 
 
 # CRUD (Создание, чтение, обновление, удаление)
@@ -20,26 +20,7 @@ class BookDAO:
         self.session.commit()
         return book
 
-    def update(self, data):
-        bid = data.get("id")
-        book = self.get_one(bid)
-
-        book.name = data.get("name")
-        book.year = data.get("year")
-
-        self.session.add(book)
-        self.session.comit()
-        return book
-
-    def update_partial(self, data):
-        aid = data.get("id")
-        book = self.get_one(aid)
-
-        if "name" in data:
-            book.name = data.get("name")
-        if "year" in data:
-            book.year = data.get("year")
-
+    def update(self, book):
         self.session.add(book)
         self.session.comit()
         return book

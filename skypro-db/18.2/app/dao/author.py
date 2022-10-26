@@ -1,4 +1,4 @@
-from dao.model.author import Author
+from app.dao.model.author import Author
 
 
 # CRUD (Создание, чтение, обновление, удаление)

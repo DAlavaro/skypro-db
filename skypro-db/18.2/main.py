@@ -5,7 +5,8 @@ from app.views.authors import author_ns
 from app.views.books import book_ns
 from app.config import Config
 from app.database import db
-from app.models import Book, Author
+from app.dao.model.author import Author
+from app.dao.model.book import Book
 
 
 # Функция будет создавать приложение и возвращать его
@@ -32,8 +33,8 @@ def load_data():
     b1 = Book(id=1, name="Harry Potter", year=1992)
     b2 = Book(id=2, name="LE Comte dr Monte-Cristo", year=1854)
 
-    a1 = Author(id=1, firsrt_name="Joan", last_name="Routing")
-    a2 = Author(id=2, firsrt_name="Alexandre", last_name="Dumas")
+    a1 = Author(id=1, first_name="Joan", last_name="Routing")
+    a2 = Author(id=2, first_name="Alexandre", last_name="Dumas")
 
     db.create_all()
 

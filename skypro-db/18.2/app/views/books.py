@@ -1,7 +1,7 @@
 from flask import request
 from flask_restx import Resource, Namespace
-
-from dao.model.book import BookSchema
+from app.container import book_dao
+from app.dao.model.book import BookSchema
 
 # Создаем наймспэйс
 book_ns = Namespace('books')
@@ -30,7 +30,7 @@ class BookView(Resource):
 
     def put(self, bid):
         req_json = request.json
-        req_json["id"] = aid
+        req_json["id"] = bid
         book_dao.update(req_json)
 
         return "", 204

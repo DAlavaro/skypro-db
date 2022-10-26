@@ -1,4 +1,4 @@
-from dao.book import BookDAO
+from app.dao.book import BookDAO
 
 
 class BookService:
@@ -36,4 +36,4 @@ class BookService:
         self.dao.update(author)
 
     def delete(self, bid):
-        pass
+        self.dao.delete(bid)

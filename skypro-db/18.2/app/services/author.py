@@ -1,4 +1,4 @@
-from dao.author import AuthorDAO
+from app.dao.author import AuthorDAO
 
 
 class AuthorService:
@@ -36,4 +36,4 @@ class AuthorService:
         self.dao.update(author)
 
     def delete(self, aid):
-        pass
+        self.dao.delete(aid)
