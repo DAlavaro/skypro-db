@@ -7,12 +7,10 @@ class AuthorDAO:
         self.session = session
 
     def get_one(self, aid):
-        entity_list = self.session.query(Author).get(aid)
-        return entity_list
+        return self.session.query(Author).get(aid)
 
     def get_all(self):
-        entity_list = self.session.query(Author).all()
-        return entity_list
+        return self.session.query(Author).all()
 
     def create(self, data):
         author = Author(**data)
@@ -20,26 +18,7 @@ class AuthorDAO:
         self.session.commit()
         return author
 
-    def update(self, data):
-        aid = data.get("id")
-        author = self.get_one(aid)
-
-        author.name = data.get("first_name")
-        author.year = data.get("last_name")
-
-        self.session.add(author)
-        self.session.comit()
-        return author
-
-    def update_partial(self, data):
-        aid = data.get("id")
-        author = self.get_one(aid)
-
-        if "first_name" in data:
-            author.name = data.get("first_name")
-        if "last_name" in data:
-            author.year = data.get("last_name")
-
+    def update(self, author):
         self.session.add(author)
         self.session.comit()
         return author

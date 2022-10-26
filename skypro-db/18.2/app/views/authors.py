@@ -33,7 +33,7 @@ class AuthorView(Resource):
     def put(self, aid):
         req_json = request.json
         req_json["id"] = aid
-        author = author_dao.update(req_json)
+        author_dao.update(req_json)
 
         return "", 204
 
@@ -41,15 +41,12 @@ class AuthorView(Resource):
     def patch(self, aid):
         req_json = request.json
         req_json["id"] = aid
-        author = author_dao.update_partial(req_json)
+        author_dao.update_partial(req_json)
 
         return "", 204
 
 
-    def delete(self, bid: int):
-        user = db.session.query(Author).get(bid)
-
-        db.session.delete(user)
-        db.session.commit()
+    def delete(self, aid: int):
+        author_dao.delete(aid)
 
         return "", 204
