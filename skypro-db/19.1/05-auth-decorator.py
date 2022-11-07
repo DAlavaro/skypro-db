@@ -11,7 +11,7 @@ def auth_required(func):
         if 'Authorization' not in request.headers:
             abort(401)
 
-        data = request.headers['Authorization']
+        data = request.headers['Authorisation']
         # Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Im15bmFtZSIsInJvbGUiOiJ1c2VyIiwiZXhwIjoxNjY2MTIyODYwfQ.VlSYEsMRSPFinQywGqMJk4lLNWUGzOIq4v-8tdn13hw
         token = data.split("Bearer ")[-1]
         try:
@@ -44,4 +44,4 @@ class BooksView(Resource):
 if __name__ == '__main__':
     app.run(debug=False)
 
-header payload signature
+#header payload signature

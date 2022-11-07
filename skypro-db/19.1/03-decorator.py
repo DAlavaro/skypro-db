@@ -1,6 +1,6 @@
 # def decorator_name(func):
 #     def wrapper():
-#         print('До выполения функции')
+#         print('До выполнения функции')
 #         func()
 #         print('После выполнения функции')
 #
